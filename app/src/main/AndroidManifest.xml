@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="xyz.gianlu.librespot.android">
+    package="xyz.gianlu.librespot.android" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".LibrespotApp"
+        android:name=".LibrespotConnectApp"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LibrespotAndroid"
-        android:usesCleartextTraffic="true"
-        android:fullBackupContent="@xml/backup_descriptor"
-        android:allowBackup="true">
-
-        <activity android:name=".LoginActivity" />
-
-        <activity android:name=".MainActivity"
-            android:exported="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/titleActivitySettings" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,4 +32,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

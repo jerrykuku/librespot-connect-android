@@ -1,5 +1,6 @@
 package xyz.gianlu.librespot.android;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.EditText;
 
@@ -24,5 +25,13 @@ public final class Utils {
     @NotNull
     public static File getCredentialsFile(@NotNull Context context) {
         return new File(context.getCacheDir(), "credentials.json");
+    }
+
+    @SuppressLint("DefaultLocale")
+    public static String formatTimeString(int time) {
+        int sec = (time / 1000) % 60;
+        int mins = ((time / 1000) - sec) / 60;
+
+        return String.format("%d:%02d", mins, sec);
     }
 }

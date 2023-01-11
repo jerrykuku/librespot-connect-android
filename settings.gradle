@@ -3,3 +3,4 @@ include ':librespot-android-decoder-tremolo'
 include ':librespot-android-sink'
 include ':app'
 rootProject.name = "librespot-android"
+include ':librespot-android-zeroconf-server'

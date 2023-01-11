@@ -1,0 +1,18 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:key="preference_screen">
+    <PreferenceCategory
+        android:title="@string/preferenceDeviceCategory"
+        app:key="preference_category_1">
+
+        <EditTextPreference
+            android:defaultValue="@string/app_name"
+            android:key="preference_speaker_name"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/preferenceSpeakerName"
+            app:dialogMessage="@string/preferenceSpeakerNameSummary"
+            app:persistent="true"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

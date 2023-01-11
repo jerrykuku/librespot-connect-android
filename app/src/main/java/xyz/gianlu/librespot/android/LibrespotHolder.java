@@ -2,6 +2,8 @@ package xyz.gianlu.librespot.android;
 
 import androidx.annotation.Nullable;
 
+import com.powerbling.librespot_android_zeroconf_server.AndroidZeroconfServer;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -13,6 +15,7 @@ import xyz.gianlu.librespot.player.Player;
 public final class LibrespotHolder {
     private volatile static WeakReference<Session> session;
     private volatile static WeakReference<Player> player;
+    private volatile static WeakReference<AndroidZeroconfServer> server;
 
     private LibrespotHolder() {
     }
@@ -25,9 +28,16 @@ public final class LibrespotHolder {
         LibrespotHolder.player = new WeakReference<>(player);
     }
 
+    public static void set(@NotNull AndroidZeroconfServer server) {
+        LibrespotHolder.server = new WeakReference<>(server);
+    }
+
     public static void clear() {
         Session s = getSession();
         Player p = getPlayer();
+        AndroidZeroconfServer ser = getServer();
+
+
         if (p != null || s != null) {
             new Thread(() -> {
                 if (p != null) p.close();
@@ -39,8 +49,19 @@ public final class LibrespotHolder {
             }).start();
         }
 
+
+        if (ser != null) {
+            try {
+
+                ser.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         player = null;
         session = null;
+        server = null;
     }
 
     @Nullable
@@ -53,11 +74,20 @@ public final class LibrespotHolder {
         return player != null ? player.get() : null;
     }
 
+    @Nullable
+    public static AndroidZeroconfServer getServer() {
+        return server != null ? server.get() : null;
+    }
+
     public static boolean hasSession() {
         return getSession() != null;
     }
 
     public static boolean hasPlayer() {
         return getPlayer() != null;
+    }
+
+    public static boolean hasServer() {
+        return getServer() != null;
     }
 }
