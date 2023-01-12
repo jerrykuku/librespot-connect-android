@@ -1,5 +1,6 @@
-# librespot-android
+# Librespot Connect Android
 
-This is a demo application to demonstrate that it is possible to run [librespot-java](https://github.com/librespot-org/librespot-java) on an Android device. The app provides basic functionalities to login and then to play a custom URI, pause/resume, skip next and previous, but all features could be implemented. 
+This application is meant to enable old android devices to be used as Spotify Connect receivers and to listen to music through Spotify.
 
-This repo also contains some useful modules that contain Android-compatible sinks and decoders that you might want to use in your app.
+# You can help me here
+<a href="https://www.buymeacoffee.com/powerbling" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
