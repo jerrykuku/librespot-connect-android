@@ -8,9 +8,9 @@
         android:name=".LibrespotConnectApp"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/librespot_connect_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/librespot_connect_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.LibrespotAndroid"
         android:usesCleartextTraffic="true" >
